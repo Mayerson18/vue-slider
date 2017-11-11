@@ -1,6 +1,8 @@
 <template lang="pug">
+.pad
+  h1.h1 {{text}}
   .columns
-    .column
+    .column.flex-center
       .center
         img.logo(src="static/img/logo.png")
         p.p Was founded on the solid terms of Assurance, Transparency, Integrity, and Service, by a team of reinsurance experts who made their names by delivering great service to the industry.
@@ -30,15 +32,16 @@
 <script>
 export default {
   name: 'panel',
-  props: ['Id'],
+  props: ['Id','Text'],
   data () {
     return {
-      id: this.Id
+      id: this.Id,
+      text: this.Text
     }
   },
   methods: {
     Next(e){
-      this.$emit('NextScene',e)
+      this.$emit('next')
     }
   }
 }
@@ -51,8 +54,17 @@ export default {
   @return #{$pixels/16px}em;
 }
 
-.logo{
-  margin-top: 23%;
+.pad{
+  padding: 0px 5%;
+}
+
+.slick-slide img {
+  display: initial;
+}
+
+.flex-center{
+  display: flex;
+    align-items: center;
 }
 
 .center{
@@ -96,12 +108,10 @@ $morado: #3e2ab2;
 
 .contact{
   background-color: $blanco;
-  font-family: 'hiramaru';
+  //font-family: 'hiramaru';
 }
 
-.form{
-  padding: 2em 1.4em;
-}
+.form{ padding: 2em 1.4em; }
 
 .h2{
   font-size: 1.5em;

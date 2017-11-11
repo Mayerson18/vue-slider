@@ -21,11 +21,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 
-.xd{
-  width: 100%;
-  height: 1000px;
-}
-
 h1, h2 {
   font-weight: normal;
 }

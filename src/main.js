@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import KsVueScrollmagic from 'ks-vue-scrollmagic'
 import 'bulma/css/bulma.css'
-
-Vue.use(KsVueScrollmagic)
+import 'slick-carousel/slick/slick.css'
+import ToggleButton from 'vue-js-toggle-button'
+import SweetModal from 'sweet-modal-vue/src/plugin.js'
+Vue.use(SweetModal)
+Vue.use(ToggleButton)
 
 Vue.config.productionTip = false
 

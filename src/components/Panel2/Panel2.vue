@@ -4,24 +4,57 @@
     .column.is-3
       img.logo(src="static/img/logo.png")
     .column.is-9.j
-      h1.h1 {{text}}
-  .columns.is-fluid.pad.c
-    .column.j
-      h2.h3 Que es lo que  busca de un Intermediario de Reaseguro?
-      p.p2 marque en orden de importancia del 1 al 5
-    .column.j
-      .contact
-        .campo(v-for="item in items")
-          label.l {{item.text}}
-          star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
-  .send('v-on:click'="Next" :data-id="id") SIGUIENTE
+      h1.h1.title {{text}}
+  .c2
+    .columns.is-fluid.pad.c
+      .column.j
+        h2.h3 Que es lo que  busca de un Intermediario de Reaseguro?
+        p.p2 marque en orden de importancia del 1 al 5
+      .column.j
+        .contact
+          .columns
+            .column
+              .campo
+                label.l Respuesta rápida
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+            .column
+              .campo
+                label.l Flexibilidad
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+          .columns
+            .column
+              .campo
+                label.l Especialidad
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+            .column
+              .campo
+                label.l Multilíneas
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+          .columns
+            .column
+              .campo
+                label.l Proactividad, apoyo con información
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+            .column
+              .campo
+                label.l Manejo de reclamos
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+          .columns
+            .column
+              .campo
+                label.l Consultoría
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+            .column
+    .send('v-on:click'="Next" :data-id="id") SIGUIENTE
+    Dots(:Active="1")
 </template>
 
 <script>
 import StarRating from 'vue-star-rating'
+import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel2',
-  components: {StarRating},
+  components: {StarRating, Dots},
   props: ['Id','Text'],
   data () {
     return {
@@ -40,7 +73,7 @@ export default {
   },
   methods: {
     Next(e){
-      this.$emit('NextScene',e)
+      this.$emit('next')
     }
   }
 }
@@ -51,6 +84,19 @@ export default {
 
 @function em($pixels) {
   @return #{$pixels/16px}em;
+}
+
+
+.logo{
+  max-height: 100px;
+}
+
+.title{
+  margin: 0px!important;
+}
+
+.pad{
+  padding: 0px 5%;
 }
 
 svg{
@@ -68,16 +114,6 @@ svg{
   display: flex;
   justify-content: center;
   flex-direction: column
-}
-
-.h1{
-  font-family: Helvetica;
-  font-size: 26px;
-  font-weight: bold;
-  letter-spacing: -0px;
-  text-align: center;
-  color: #6d6d6d;
-  margin-bottom: 1em;
 }
 
 .h3{
@@ -98,12 +134,15 @@ svg{
 
 .contenedor{
   color: #ffffff;
+  background-color: #b1cca0;
+  height: 100vh;
+  
 }
 
 .back{
   background-color: white;
   width: 100%;
-  position: absolute;
+  margin: 0;
   top: 1%;
   left: 12px;
   padding: 0px 7%;
@@ -116,7 +155,6 @@ svg{
 
 .c{
   max-width: 1000px;
-  padding-top:200px;
 }
 
 $blanco: #ffffff;
@@ -142,7 +180,9 @@ $morado: #3e2ab2;
 .field{ margin-bottom: 1em ;}
 
 .contact{
-  font-family: 'hiramaru';
+  //font-family: 'hiramaru';
+  padding-top: 1em;
+  font-size: .9em;
 }
 
 .form{
@@ -171,19 +211,23 @@ $morado: #3e2ab2;
   cursor: pointer;
   border-radius: 9px;
   border: solid 3px #ffffff;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-
+.campo{
+  padding-bottom: 1em;
+}
 
 @media (max-width:1000px){
   .c{     
     padding: 0px 1em;
-    padding-top: 115px;
   }
-  .send{ margin: 0px 1em; }
+  .send{ margin-left: 1em; margin-right: 1em;}
   .h3{ text-align: center; font-size: 1em; }
   .l{ font-size: 1em!important; }
   .campo{ display: flex; }
+  .contenedor{ height: initial!important;}
 }
 
 </style>

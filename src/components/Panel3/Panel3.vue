@@ -4,56 +4,59 @@
     .column.is-3
       img.logo(src="static/img/logo.png")
     .column.is-9.j
-      h1.h1 {{text}}
-  .columns.is-fluid.pad.c
-    .column
-      h2.h3 Que es lo que  busca de un Intermediario de Reaseguro?
-      .contact
-        form.form
-          .field
-            label.label Respuesta rapida
-            .control
-              input.input(placeholder="Respuesta Rapida")
-          .field
-            label.label Empresa
-            .control
-              input.input(placeholder="Empresa")
-          .field
-            label.label Cargo
-            .control
-              input.input(placeholder="Cargo")
-          .field
-            label.label Email
-            .control
-              input.input(type="email" placeholder="Email")
-          .send('v-on:click'="Next" :data-id="id") SIGUIENTE
+      h1.h1.title {{text}}
+  .c2
+    .columns.is-fluid.pad.c
+      .column
+        h2.h3 Cuál sería el valor agregado más importante de su corredor de reaseguro?
+        .contact
+          .columns
+            .column
+              .campo
+                label.l Seminarios
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+            .column
+              .campo
+                label.l Desarrollo de Productos 
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+          .columns
+            .column
+              .campo
+                label.l Talleres de entrenamiento para ventas
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+            .column
+              .campo
+                label.l Apoyo técnico en licitaciones 
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+          .columns
+            .column
+              .campo
+                label.l Servicios de Ingeniería
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+            .column
+              .campo
+                label.l Otros 
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+    .send('v-on:click'="Next" :data-id="id") SIGUIENTE
+    Dots(:Active="2")
 </template>
 
 <script>
 import StarRating from 'vue-star-rating'
+import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel3',
-  components: {StarRating},
+  components: {StarRating,Dots},
   props: ['Id','Text'],
   data () {
     return {
       id: this.Id,
-      text: this.Text,
-      items: [
-        {text: 'Respuesta rápida'},
-        {text: 'Flexibilidad'},
-        {text: 'Especialidad'},
-        {text: 'Multilíneas'},
-        {text: 'Proactividad, apoyo con información'},
-        {text: 'Manejo de reclamos'},
-        {text: 'Consultoría'}
-      ]
+      text: this.Text
     }
   },
   methods: {
     Next(e){
-      console.log('wtfsdws')
-      this.$emit('NextScene',e)
+      this.$emit('next')
     }
   }
 }
@@ -64,6 +67,14 @@ export default {
 
 @function em($pixels) {
   @return #{$pixels/16px}em;
+}
+
+.logo{
+  max-height: 100px;
+}
+
+.title{
+  margin: 0px!important;
 }
 
 svg{
@@ -86,7 +97,7 @@ svg{
 
 .h1{
   font-family: Helvetica;
-  font-size: 26px;
+  //font-size: 26px;
   font-weight: bold;
   letter-spacing: -0px;
   text-align: center;
@@ -100,6 +111,8 @@ svg{
   font-weight: bold;
   letter-spacing: -0px;
   color: #ffffff;
+  text-align: center;
+  padding-top: 2em;
 }
 
 .p2{
@@ -111,15 +124,17 @@ svg{
 
 .contenedor{
   color: #ffffff;
+  background-color: #8bb495;
+  height: 100vh;
 }
 
 .back{
   background-color: white;
   width: 100%;
-  position: absolute;
   top: 1%;
   left: 12px;
   padding: 0px 7%;
+  margin: 0;
 }
 
 
@@ -128,9 +143,7 @@ svg{
 }
 
 .c{
-  max-width: 1000px;
-  padding-top:200px;
-  width: 1000px;
+  padding: 0px 5%;
 }
 
 $blanco: #ffffff;
@@ -173,7 +186,8 @@ $morado: #3e2ab2;
 .field{ margin-bottom: 1em ;}
 
 .contact{
-  font-family: 'hiramaru';
+  //font-family: 'hiramaru';
+  font-size: .9em;
 }
 
 .form{
@@ -202,13 +216,13 @@ $morado: #3e2ab2;
   cursor: pointer;
   border-radius: 9px;
   border: solid 3px #ffffff;
+  margin-bottom: 50px;
 }
 
 
 
 @media (max-width:1000px){
   .c{
-    padding-top: 115px;
     width: 100%;
   }
 
@@ -218,6 +232,7 @@ $morado: #3e2ab2;
   }
 
   .label{ display: none; }
+  .contenedor{ height: initial!important;}
   .field{ padding-left: 1em; }
 }
 

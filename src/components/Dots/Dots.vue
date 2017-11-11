@@ -1,42 +1,79 @@
 <template lang="pug">
+.cont
   .dots
-    .dot(v-for="(item,index) in items" 'v-on:click'="Click" :class="{active: index < active}" :data-id="item.id")
-      .text {{item.text}}
+    .dot(v-for="(item,index) in items" 'v-on:click'="Click(index)" :class="{active2: index === active}")
+      .text {{item}}
 
-      
 </template>
 
 <script>
 export default {
   name: 'dots',
-  props: ['Items'],
+  props: ['Active'],
   data () {
     return {
-      items: this.Items,
-      active: 0
+      items: [
+        'Inicio',
+        'Q1',
+        'Q2',
+        'Q3',
+        'Q4',
+        'Q5',
+        'Q6'
+      ],
+      active: this.Active
     }
   },
   methods: {
-    Click(e){
-      const id = parseInt(e.path[0].dataset.id)+1
-      this.active = id
-      this.$emit('DotScene',e)
+    Click(index){
+      document.getElementById(`slick-slide-control0${index}`).click()
+      window.scrollTo(0,0)
     }
   }
 }
 </script>
-<style lang="scss" scoped>
-.dot{
-  width: 36px;
-  height: 36px;
-  border: solid 1px #ffffff;
+
+<style lang="scss">
+
+.dots{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 1em 0px;
+  &>.dot{
+    margin-left: 1em;
+    margin-bottom: 1em;
+    width: 36px;
+    height: 36px;
+    border: solid 1px #ffffff;
+    background: transparent;
+    border-radius: 50%;
+    &>.text{
+      color: #ffffff;
+      position: relative;
+      top: 2.5em;
+      text-align: center;
+    }
+  }
 }
 
-.active{
-  background-color: $blanco;
+.active2{
+  background-color: #ffffff!important;
 }
+
 
 @media (max-width:1000px){
-  .h1{ display: none; }
+  .h1{
+    font-size: 1em;
+  }
+}
+
+@media (max-width:400px){
+  .dots{ 
+    &>.dot{
+      width: 31px!important;
+      height: 31px!important;
+    }
+  }
 }
 </style>
