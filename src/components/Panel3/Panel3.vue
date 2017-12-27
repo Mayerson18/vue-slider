@@ -14,29 +14,29 @@
             .column
               .campo
                 label.l Seminarios
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.seminarios")
             .column
               .campo
                 label.l Desarrollo de Productos 
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.desarrollo")
           .columns
             .column
               .campo
                 label.l Talleres de entrenamiento para ventas
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.talleres")
             .column
               .campo
                 label.l Apoyo técnico en licitaciones 
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.apoyo")
           .columns
             .column
               .campo
                 label.l Servicios de Ingeniería
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.servicios")
             .column
               .campo
                 label.l Otros 
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.otros2")
     .send('v-on:click'="Next" :data-id="id") SIGUIENTE
     Dots(:Active="2")
 </template>
@@ -47,7 +47,7 @@ import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel3',
   components: {StarRating,Dots},
-  props: ['Id','Text'],
+  props: ['Id','Text','Panel'],
   data () {
     return {
       id: this.Id,

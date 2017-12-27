@@ -16,35 +16,38 @@
             .column
               .campo
                 label.l Respuesta rápida
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20" v-model="Panel.respuesta")
             .column
               .campo
                 label.l Flexibilidad
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20" v-model="Panel.flexibilidad")
           .columns
             .column
               .campo
                 label.l Especialidad
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20" v-model="Panel.especialidad")
             .column
               .campo
                 label.l Multilíneas
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20" v-model="Panel.multilineas")
           .columns
             .column
               .campo
                 label.l Proactividad, apoyo con información
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20" v-model="Panel.proactividad")
             .column
               .campo
                 label.l Manejo de reclamos
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")          
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.manejo")
           .columns
             .column
               .campo
                 label.l Consultoría
-                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20")
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.consultoria")
             .column
+              .campo
+                label.l Otros
+                star-rating(inactive-color="#DBDBDB" active-color="#ffffff" border-color="#ffffff" :star-size="20"  v-model="Panel.otros")
     .send('v-on:click'="Next" :data-id="id") SIGUIENTE
     Dots(:Active="1")
 </template>
@@ -55,7 +58,7 @@ import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel2',
   components: {StarRating, Dots},
-  props: ['Id','Text'],
+  props: ['Id','Text','Panel'],
   data () {
     return {
       id: this.Id,

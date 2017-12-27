@@ -15,64 +15,64 @@
               .campo
                 .field
                   .control
-                    input.input(placeholder="Incendio")
+                    input.input(placeholder="Incendio" v-model="Panel.incendio")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Finanzas")
+                    input.input(placeholder="Finanzas"  v-model="Panel.finanzas")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Ramos Tecnicos")
+                    input.input(placeholder="Ramos Tecnicos"  v-model="Panel.ramos")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Vida Colectivo")
+                    input.input(placeholder="Vida Colectivo"  v-model="Panel.vida")
           .columns
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Transporte")
+                    input.input(placeholder="Transporte"  v-model="Panel.transporte")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Responsabilidad Civil")
+                    input.input(placeholder="Responsabilidad Civil"  v-model="Panel.responsabilidad")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Financieros")
+                    input.input(placeholder="Financieros"  v-model="Panel.financieros")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Aviación")
+                    input.input(placeholder="Aviación"  v-model="Panel.aviacion")
           .columns
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Marítimo")
+                    input.input(placeholder="Marítimo"  v-model="Panel.maritimo")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Flota de Automóviles")
+                    input.input(placeholder="Flota de Automóviles"  v-model="Panel.flota")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Ramos especiales")
+                    input.input(placeholder="Ramos especiales"  v-model="Panel.ramos2")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Otros")
+                    input.input(placeholder="Otros"  v-model="Panel.otros3")
     .send('v-on:click'="Next" :data-id="id") SIGUIENTE
     Dots(:Active="3")
 </template>
@@ -83,7 +83,7 @@ import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel4',
   components: {StarRating,Dots},
-  props: ['Id','Text'],
+  props: ['Id','Text','Panel'],
   data () {
     return {
       id: this.Id,

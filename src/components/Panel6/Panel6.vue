@@ -14,30 +14,30 @@
             .column
               .campo
                 .q Bróker registrados
-                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}")
+                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}"  v-model="Panel.broker")
             .column
               .campo
                 .q Especialidad
-                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}")
+                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}"  v-model="Panel.especialidad2")
           .columns
             .column
               .campo
                 .q  Tamaño y nombre
-                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}")
+                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}"  v-model="Panel.tamyname")
             .column
               .campo
                 .q Tamaño de la cuenta
-                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}")
+                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}"  v-model="Panel.tamano")
           .columns
             .column
               .campo
                 .q Suele utilizar varios brókeres para una sola cuenta 
-                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}")
+                toggle-button(:value="true" :labels="{checked: 'Si', unchecked: 'No'}"  v-model="Panel.suele")
             .column
               .campo
                 .field
                   .control
-                    input.input(placeholder="Razon?")
+                    input.input(placeholder="Razon?"  v-model="Panel.razon")
     .send('v-on:click'="Next" :data-id="id") SIGUIENTE
     Dots(:Active="5")
 </template>
@@ -48,7 +48,7 @@ import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel6',
   components: {StarRating,Dots},
-  props: ['Id','Text'],
+  props: ['Id','Text','Panel'],
   data () {
     return {
       id: this.Id,

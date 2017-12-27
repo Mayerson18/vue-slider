@@ -7,6 +7,13 @@ import 'bulma/css/bulma.css'
 import 'slick-carousel/slick/slick.css'
 import ToggleButton from 'vue-js-toggle-button'
 import SweetModal from 'sweet-modal-vue/src/plugin.js'
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate)
+var VueFire = require('vuefire')
+
+// explicit installation required in module environments
+Vue.use(VueFire)
 Vue.use(SweetModal)
 Vue.use(ToggleButton)
 

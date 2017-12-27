@@ -15,7 +15,7 @@
               .campo
                 .field
                   .control
-                    textarea.textarea(placeholder="Textarea")
+                    textarea.textarea(placeholder="Textarea" v-model="Panel.textarea")
     .send('v-on:click'="Next" :data-id="id") SIGUIENTE
     Dots(:Active="4")
 </template>
@@ -26,7 +26,7 @@ import Dots from '@/components/Dots/Dots'
 export default {
   name: 'panel5',
   components: {StarRating,Dots},
-  props: ['Id','Text'],
+  props: ['Id','Text','Panel'],
   data () {
     return {
       id: this.Id,

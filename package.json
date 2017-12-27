@@ -12,15 +12,18 @@
   "dependencies": {
     "bodymovin": "^4.13.0",
     "bulma": "^0.6.1",
+    "firebase": "^4.6.2",
     "jquery": "^3.2.1",
     "ks-vue-scrollmagic": "^1.0.2",
     "sweet-modal-vue": "^2.0.0",
-    "vue": "^2.5.2",
+    "vee-validate": "^2.0.0-rc.21",
+    "vue": "^2.5.3",
     "vue-js-toggle-button": "^1.2.0",
     "vue-lottie": "^0.1.0",
     "vue-router": "^3.0.1",
     "vue-slick": "^1.1.12",
-    "vue-star-rating": "^1.5.1"
+    "vue-star-rating": "^1.5.1",
+    "vuefire": "^1.4.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
